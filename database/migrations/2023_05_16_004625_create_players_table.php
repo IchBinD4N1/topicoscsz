@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('nickname')->unique();
+            $table->string('name');
             $table->unsignedBigInteger('team_id');
             $table->unsignedBigInteger('country_id');
+            $table->integer('age');
             $table->string('status');
-            $table->timestamps();
 
             $table->foreign('team_id')->references('id')
                 ->on('teams');
